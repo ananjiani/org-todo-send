@@ -9,7 +9,9 @@ readme = "README.md"
 python = "^3.11"
 orgparse = "^0.4.20231004"
 requests = "^2.31.0"
-
+pandas = "^2.2.1"
+pypandoc-binary = "^1.13"
+pysignalclirestapi = "^0.3.23"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
     devenv.url = "github:cachix/devenv";
     devenv.inputs.nixpkgs.follows = "nixpkgs";
@@ -26,12 +26,22 @@
             inherit inputs pkgs;
             modules = [{
               # https://devenv.sh/reference/options/
-              packages = [ ];
+
+              packages = (with pkgs; [ ruff ])
+                ++ (with pkgs.python311Packages; [
+                  mypy
+                  debugpy
+                  python-lsp-server
+                  python-lsp-ruff
+                  pylsp-mypy
+                  pandas-stubs
+                ]);
 
               languages.python = {
                 enable = true;
                 poetry.enable = true;
                 poetry.activate.enable = true;
+                poetry.install.enable = true;
               };
             }];
           };

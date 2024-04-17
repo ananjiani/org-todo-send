@@ -1,5 +1,7 @@
 #+TITLE: org-todo-send
-This package is provided as is.
+I made this litte utility to facilitate keeping track of tasks. I take meeting notes in an org file, and and action items get a TODO headline tagged with the person it's assigned to. This script reads an org file and sends each person all of their TODOs in a neatly formatted message via Signal.
+
+This package is subject to change as my needs shift and is provided as is.
 
 * Usage
 - See [[file:usage.md][usage.md]]

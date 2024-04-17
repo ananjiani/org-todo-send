@@ -39,7 +39,14 @@ def org_todo_send(
     attachments = [parse.org_to_html(org_file)] if html else None
     todos = parse.get_todos_from_org(org_file)
 
-    for recipient, number in recipients.items():
+    # filter out recipients without todos
+    recipients_trimmed = [
+        (recipient, number)
+        for recipient, number in recipients.items()
+        if recipient in set(todos["people"].sum())
+    ]
+
+    for recipient, number in recipients_trimmed:
         message = parse.format_message(message_title, recipient, todos)
         signal.send_message(
             message=message, recipients=[number], attachments_as_bytes=attachments

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "org-todo-send"
-version = "0.1.0"
+version = "0.1.1"
 description = "A CLI tool which sends TODOs from an Org file to people they have been assigned to via the Signal REST API"
 authors = ["Ammar Nanjiani <ammar.nanjiani@gmail.com>"]
 readme = "README.org"

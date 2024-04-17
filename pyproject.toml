@@ -17,6 +17,9 @@ pypandoc-binary = "^1.13"
 pysignalclirestapi = "^0.3.23"
 typer = {extras = ["all"], version = "^0.12.3"}
 
+[tool.poetry.group.test.dependencies]
+pytest = "^8.1.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

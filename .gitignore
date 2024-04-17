@@ -1,3 +1,5 @@
 .devenv
 .direnv
 org_todo_send/__pycache__
+/tests/__pycache__/
+/dist/

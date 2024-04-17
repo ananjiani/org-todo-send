@@ -1,0 +1,10 @@
+This package is provided as is.
+
+* Usage
+- See [[file:usage.md][usage.md]]
+- The expected TOML file is simply a list of names with the number associated.
+  #+begin_src_toml
+alice = "+11234567890"
+john = "+10987654321"
+  #+end_src
+- This package relies on the [[https://github.com/bbernhard/signal-cli-rest-api][Signal REST API]].

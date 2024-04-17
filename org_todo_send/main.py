@@ -8,30 +8,30 @@ import tomllib
 app = typer.Typer()
 
 
-
 @app.command()
-def send(
+def org_todo_send(
     org_file: Annotated[str, typer.Argument(help="Path to your Org file")],
     sender: Annotated[
         str,
         typer.Argument(
-            envvar="SIGNAL_SENDER", help="The Signal phone number you are sending from"
+            envvar="SIGNAL_SENDER", help="The Signal phone number you are sending from."
         ),
     ],
     recipients_file: Annotated[
         str,
         typer.Argument(
-            help="Path to a TOML file containing phone numbers or IDs of recipients"
+            help="Path to a TOML file containing phone numbers or IDs of recipients."
         ),
     ],
     api_url: Annotated[
-        str, typer.Argument(envvar="SIGNAL_API", help="URL of your Signal REST API")
+        str, typer.Argument(envvar="SIGNAL_API", help="URL of your Signal REST API.")
     ] = "http://localhost:8080",
-    message_title: Annotated[ str, typer.Option(help="Title of the message")] = "TODOs",
+    message_title: Annotated[str, typer.Option(help="Title of the message")] = "TODOs",
     html: Annotated[
-        bool, typer.Option(help="Attach an HTML export of the Org file in the message")
+        bool, typer.Option(help="Attach an HTML export of the Org file in the message.")
     ] = False,
 ):
+    """Sends a message to recipients with their TODOs from an Org file. The TODO nodes in the Org file should be tagged with the recipient's name. Ex: @alice"""
     signal = SignalCliRestApi(base_url=api_url, number=sender)
     with open(recipients_file, "rb") as f:
         recipients = tomllib.load(f)

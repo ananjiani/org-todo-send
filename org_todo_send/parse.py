@@ -5,11 +5,11 @@ import pypandoc  # type: ignore
 from datetime import datetime
 
 
-def get_todos_from_org(org_file_path: str) -> pd.DataFrame:
+def get_todos_from_org(org_file: str) -> pd.DataFrame:
     """
     Extracts todos from an Org file using orgparse and returns a list of Todos.
     """
-    org = orgparse.load(org_file_path)
+    org = orgparse.load(org_file)
     todo_nodes = [n for n in org[1:] if n.todo == "TODO"]
 
     todos_dict: dict = {
@@ -48,8 +48,8 @@ def get_todos_from_org(org_file_path: str) -> pd.DataFrame:
     return todos_df
 
 
-def format_message(title: str, recipient: str, todos: pd.DataFrame) -> str:
-    boolean_mask = [recipient in lst for lst in todos["people"]]
+def format_message(title: str, recipient_name: str, todos: pd.DataFrame) -> str:
+    boolean_mask = [recipient_name in lst for lst in todos["people"]]
     df = todos[boolean_mask]
     ret = f"{title}\n\n"
 
@@ -66,8 +66,8 @@ def format_message(title: str, recipient: str, todos: pd.DataFrame) -> str:
     return ret
 
 
-def org_to_html(org_file_path: str) -> str:
-    with open(org_file_path, "r") as f:
+def org_to_html(org_file: str) -> str:
+    with open(org_file, "r") as f:
         org = f.read()
 
     html = pypandoc.convert_text(

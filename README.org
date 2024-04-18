@@ -4,7 +4,7 @@ I made this litte utility to facilitate keeping track of tasks. I take meeting n
 This package is subject to change as my needs shift and is provided as is.
 
 * Installation
-This package is available on [[https://pypi.org/project/org-todo-send/]][pypi]].
+This package is available on [[https://pypi.org/project/org-todo-send/][pypi]].
 
 * Usage
 - See [[file:usage.md][usage.md]]

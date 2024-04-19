@@ -1,5 +1,5 @@
 #+TITLE: org-todo-send
-I made this litte utility to facilitate keeping track of tasks. I take meeting notes in an org file, and action items get a TODO headline tagged with the person it's assigned to. This script reads an org file and sends each person all of their TODOs in a neatly formatted message via Signal.
+I made this little utility to facilitate keeping track of tasks. I take meeting notes in an org file, and action items get a TODO headline tagged with the person it's assigned to. This script reads an org file and sends each person all of their TODOs in a neatly formatted message via Signal.
 
 This package is subject to change as my needs shift and is provided as is.
 
@@ -16,3 +16,4 @@ My development environment for this project relies on using a nix flake and poet
 - [ ] message styling
 - [ ] tests
 - [ ] automated testing and deployment with actions
+- [ ] deadlines and timestamps in message

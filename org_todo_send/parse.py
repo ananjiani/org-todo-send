@@ -51,17 +51,16 @@ def get_todos_from_org(org_file: str) -> pd.DataFrame:
 def format_message(title: str, recipient_name: str, todos: pd.DataFrame) -> str:
     boolean_mask = [recipient_name in lst for lst in todos["people"]]
     df = todos[boolean_mask]
-    ret = f"{title}\n\n"
+    ret = f"{title}\n"
 
     for parent in df["parent"].unique():
         parent_df = df[df["parent"] == parent]
 
-        ret += f"{parent}\n"
+        ret += f"\n{parent}\n"
 
         for task in parent_df["text"]:
             ret += f"- {task}\n"
 
-        ret += "\n"
 
     return ret
 

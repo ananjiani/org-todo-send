@@ -47,10 +47,13 @@ def get_todos_from_org(org_file: str) -> pd.DataFrame:
 
     return todos_df
 
-
-def format_message(title: str, recipient_name: str, todos: pd.DataFrame) -> str:
-    boolean_mask = [recipient_name in lst for lst in todos["people"]]
+def get_todos_for_recipient(todos: pd.DataFrame, recipient_name: str) -> pd.DataFrame:
+    boolean_mask = [(recipient_name in lst) or ("everyone" in lst) for lst in todos["people"]]
     df = todos[boolean_mask]
+
+    return df
+def format_message(title: str, recipient_name: str, todos: pd.DataFrame) -> str:
+    df = get_todos_for_recipient(todos, recipient_name)
     ret = f"{title}\n"
 
     for parent in df["parent"].unique():

@@ -20,6 +20,12 @@ typer = {extras = ["all"], version = "^0.12.3"}
 [tool.poetry.group.test.dependencies]
 pytest = "^8.1.1"
 
+[tool.pytest.ini_options]
+log_cli = "true"
+log_cli_level = "NOTSET"
+log_format = "%(asctime)s %(levelname)s %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

@@ -43,7 +43,7 @@ def org_todo_send(
     recipients_trimmed = [
         (recipient, number)
         for recipient, number in recipients.items()
-        if recipient in set(todos["people"].sum())
+        if recipient in set(todos["people"].sum()) or "everyone" in set(todos["people"].sum())
     ]
 
     for recipient, number in recipients_trimmed:

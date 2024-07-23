@@ -2,6 +2,7 @@
 
 * Project 1
 ** TODO Todo1 :@alice:
+DEADLINE: <2024-07-23 Tue>
 ** TODO Todo2 :@john:
 ** TODO Todo3
 * Project 2

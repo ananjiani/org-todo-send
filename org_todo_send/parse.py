@@ -52,6 +52,7 @@ def get_todos_for_recipient(todos: pd.DataFrame, recipient_name: str) -> pd.Data
     df = todos[boolean_mask]
 
     return df
+
 def format_message(title: str, recipient_name: str, todos: pd.DataFrame) -> str:
     df = get_todos_for_recipient(todos, recipient_name)
     ret = f"{title}\n"
@@ -61,9 +62,10 @@ def format_message(title: str, recipient_name: str, todos: pd.DataFrame) -> str:
 
         ret += f"\n{parent}\n"
 
-        for task in parent_df["text"]:
-            ret += f"- {task}\n"
-
+        for index, row in parent_df.iterrows():
+            ret += f"- {row['text']}"
+            ret += "" if pd.isnull(row["deadline"]) else f" [Deadline: {row['deadline'].strftime('%a %-m/%d/%y')}]"
+            ret += "\n"
 
     return ret
 

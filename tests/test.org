@@ -1,10 +1,25 @@
 #+title: Test
 
+* Next Meeting
+* Last Meeting
+** Agenda
+- agenda1
+- agenda2
+** Attendees
+- alice
+- john
+** agenda1
+- thoughts
+*** subheading of agenda1
+- more thoughts
+** agenda2
+- thoughts
 * Project 1
 ** TODO Todo1 :@alice:
+DEADLINE: <2024-07-23 Tue>
 ** TODO Todo2 :@john:
 ** TODO Todo3
 * Project 2
 ** TODO Todo1
 ** TODO Todo2
-** TODO Todo3
+** TODO Todo3 :@everyone:
